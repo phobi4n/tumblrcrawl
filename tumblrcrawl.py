@@ -276,7 +276,7 @@ def usage():
 if __name__ == "__main__":
     # Catch keyboard interrupts
     signal.signal(signal.SIGINT, sigint_handler)
-    signal.signal(signal.SIGQUIT, sigint_handler)
+    signal.signal(getattr(signal, 'SIGQUIT', signal.SIGTERM), sigint_handler)
     
     # Basic name check
     if len(sys.argv) < 2:
